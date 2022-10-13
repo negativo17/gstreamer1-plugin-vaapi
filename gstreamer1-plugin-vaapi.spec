@@ -1,7 +1,7 @@
-Name:           gstreamer1-vaapi
+Name:           gstreamer1-plugin-vaapi
 Epoch:          1
 Version:        1.14.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GStreamer plugins to use VA API video acceleration
 License:        LGPLv2+
 URL:            https://cgit.freedesktop.org/gstreamer/gstreamer-vaapi
@@ -30,6 +30,10 @@ BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(xrender)
 BuildRequires:  wayland-devel
+
+Obsoletes:      gstreamer1-vaapi < 1:1.14.5-2
+Provides:       gstreamer1-vaapi = 1:%{version}-%{release}
+Provides:       gstreamer1-vaapi%{?_isa} = 1:%{version}-%{release}
 
 %description
 A collection of GStreamer plugins to let you make use of VA API video acceleration
@@ -80,6 +84,9 @@ make check
 %doc %{_datadir}/gtk-doc
 
 %changelog
+* Thu Oct 13 2022 Simone Caronni <negativo17@gmail.com> - 1:1.14.5-2
+- Rename to gstreamer1-plugin-vaapi.
+
 * Mon Jul 13 2020 Simone Caronni <negativo17@gmail.com> - 1:1.14.5-1
 - Update to 1.14.5.
 

@@ -1,6 +1,6 @@
-Name:           gstreamer1-vaapi
+Name:           gstreamer1-plugin-vaapi
 Version:        1.20.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Epoch:          1
 Summary:        GStreamer VA-API integration
 License:        LGPLv2+
@@ -34,6 +34,10 @@ BuildRequires:  pkgconfig(wayland-scanner) >= 1.11.0
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(xrender)
+
+Obsoletes:      gstreamer1-vaapi < 1:1.20.0-2
+Provides:       gstreamer1-vaapi = 1:%{version}-%{release}
+Provides:       gstreamer1-vaapi%{?_isa} = 1:%{version}-%{release}
 
 %description
 GStreamer is a streaming media framework, based on graphs of elements which
@@ -69,6 +73,9 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/gstreamer-1.0/*.so
 
 %changelog
+* Thu Oct 13 2022 Simone Caronni <negativo17@gmail.com> - 1:1.20.0-2
+- Rename to gstreamer1-plugin-vaapi.
+
 * Wed Feb 09 2022 Simone Caronni <negativo17@gmail.com> - 1:1.20.0-1
 - Update to 1.20.0.
 

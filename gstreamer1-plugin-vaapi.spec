@@ -1,6 +1,6 @@
-Name:           gstreamer1-vaapi
+Name:           gstreamer1-plugin-vaapi
 Version:        1.18.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Epoch:          1
 Summary:        GStreamer VA-API integration
 License:        LGPLv2+
@@ -61,14 +61,15 @@ GStreamer.
 %meson_install
 find %{buildroot} -name "*.la" -delete
 
-%ldconfig_scriptlets
-
 %files
 %license COPYING.LIB
 %doc AUTHORS NEWS README ChangeLog
 %{_libdir}/gstreamer-1.0/*.so
 
 %changelog
+* Wed Feb 08 2023 Simone Caronni <negativo17@gmail.com> - 1:1.18.4-2
+- First build for el9.
+
 * Mon Apr 12 2021 Simone Caronni <negativo17@gmail.com> - 1:1.18.4-1
 - Update to 1.18.4.
 
@@ -80,39 +81,3 @@ find %{buildroot} -name "*.la" -delete
 
 * Mon May 18 2020 Simone Caronni <negativo17@gmail.com> - 1:1.16.2-1
 - Revive package to update to latest libva.
-
-* Mon Oct 23 2017 Simone Caronni <negativo17@gmail.com> - 1:1.12.3-1
-- Update to 1.12.3.
-
-* Thu Jul 20 2017 Simone Caronni <negativo17@gmail.com> - 1:1.12.2-1
-- Update to 1.12.2.
-
-* Sat Jun 24 2017 Simone Caronni <negativo17@gmail.com> - 1:1.12.1-1
-- Update to 1.12.1.
-
-* Sat May 13 2017 Simone Caronni <negativo17@gmail.com> - 1:1.12.0-1
-- Update to 1.12.0.
-
-* Wed Apr 19 2017 Simone Caronni <negativo17@gmail.com> - 1:1.11.90-1
-- Update to 1.11.90.
-
-* Mon Dec 05 2016 Simone Caronni <negativo17@gmail.com> - 1:1.10.2-1
-- Update to 1.10.2.
-
-* Mon Nov 28 2016 Simone Caronni <negativo17@gmail.com> - 1:1.10.1-1
-- Update to 1.10.1.
-
-* Thu Nov 10 2016 Simone Caronni <negativo17@gmail.com> - 1:1.10.0-1
-- Update to 1.10.0.
-
-* Thu Nov 03 2016 Simone Caronni <negativo17@gmail.com> - 1:1.9.2-1
-- Update to 1.9.2.
-
-* Wed Aug 17 2016 Simone Caronni <negativo17@gmail.com> - 1:1.9.1-1
-- Update to 1.9.1.
-
-* Mon Jul 25 2016 Simone Caronni <negativo17@gmail.com> - 1:1.8.2-2
-- Fix devel-docs requirements, make subpackage noarch.
-
-* Mon Jun 13 2016 Simone Caronni <negativo17@gmail.com> - 1:1.8.2-1
-- First build.

@@ -1,5 +1,5 @@
 Name:           gstreamer1-plugin-vaapi
-Version:        1.20.5
+Version:        1.22.1
 Release:        1%{?dist}
 Epoch:          1
 Summary:        GStreamer VA-API integration
@@ -52,12 +52,12 @@ GStreamer.
 %build
 %meson \
   -D doc=disabled \
-  -D with_drm=yes \
-  -D with_egl=yes \
-  -D with_encoders=yes \
-  -D with_glx=yes \
-  -D with_wayland=yes \
-  -D with_x11=yes
+  -D drm=enabled \
+  -D egl=enabled \
+  -D encoders=enabled \
+  -D glx=enabled \
+  -D wayland=enabled \
+  -D x11=enabled
 
 %meson_build
 
@@ -73,6 +73,9 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/gstreamer-1.0/*.so
 
 %changelog
+* Fri Mar 17 2023 Simone Caronni <negativo17@gmail.com> - 1:1.22.1-1
+- Update to 1.22.1.
+
 * Fri Jan 20 2023 Simone Caronni <negativo17@gmail.com> - 1:1.20.5-1
 - Update to 1.20.5.
 

@@ -1,6 +1,6 @@
 Name:           gstreamer1-plugin-vaapi
-Version:        1.18.4
-Release:        2%{?dist}
+Version:        1.22.1
+Release:        1%{?dist}
 Epoch:          1
 Summary:        GStreamer VA-API integration
 License:        LGPLv2+
@@ -35,6 +35,10 @@ BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(xrender)
 
+Obsoletes:      gstreamer1-vaapi < 1:1.20.3-2
+Provides:       gstreamer1-vaapi = 1:%{version}-%{release}
+Provides:       gstreamer1-vaapi%{?_isa} = 1:%{version}-%{release}
+
 %description
 GStreamer is a streaming media framework, based on graphs of elements which
 operate on media data.
@@ -48,12 +52,12 @@ GStreamer.
 %build
 %meson \
   -D doc=disabled \
-  -D with_drm=yes \
-  -D with_egl=yes \
-  -D with_encoders=yes \
-  -D with_glx=yes \
-  -D with_wayland=yes \
-  -D with_x11=yes
+  -D drm=enabled \
+  -D egl=enabled \
+  -D encoders=enabled \
+  -D glx=enabled \
+  -D wayland=enabled \
+  -D x11=enabled
 
 %meson_build
 
@@ -61,12 +65,17 @@ GStreamer.
 %meson_install
 find %{buildroot} -name "*.la" -delete
 
+%ldconfig_scriptlets
+
 %files
 %license COPYING.LIB
-%doc AUTHORS NEWS README ChangeLog
+%doc AUTHORS NEWS README
 %{_libdir}/gstreamer-1.0/*.so
 
 %changelog
+* Thu Nov 16 2023 Simone Caronni <negativo17@gmail.com> - 1:1.22.1-1
+- Update to 1.22.1.
+
 * Wed Feb 08 2023 Simone Caronni <negativo17@gmail.com> - 1:1.18.4-2
 - First build for el9.
 

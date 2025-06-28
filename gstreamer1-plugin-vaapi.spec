@@ -1,5 +1,5 @@
 Name:           gstreamer1-plugin-vaapi
-Version:        1.26.0
+Version:        1.26.3
 Release:        1%{?dist}
 Epoch:          1
 Summary:        GStreamer VA-API integration
@@ -73,6 +73,9 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/gstreamer-1.0/*.so
 
 %changelog
+* Sat Jun 28 2025 Simone Caronni <negativo17@gmail.com> - 1:1.26.3-1
+- Update to 1.26.3.
+
 * Sun Mar 30 2025 Simone Caronni <negativo17@gmail.com> - 1:1.26.0-1
 - Update to 1.26.0.
 
